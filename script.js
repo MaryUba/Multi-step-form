@@ -1,14 +1,25 @@
+// Selects all elements with the class "step", which represent the circles indicating each step in the sidebar.
 const steps = document.querySelectorAll(".stp");
+// - Selects all elements with the class "step", which represent the circles indicating each step in the sidebar.
 const circleSteps = document.querySelectorAll(".step");
+// Selects all input elements within the form of step 1.
 const formInputs = document.querySelectorAll(".step-1 form input");
+// Selects all elements with the class "plan-card", which represent the different plan options.
 const plans = document.querySelectorAll(".plan-card");
+// Selects the switch element used for toggling between monthly and yearly billing.
 const switcher = document.querySelector(".switch");
+// Selects all elements with the class "box", which represent the add-ons available for selection.
 const addons = document.querySelectorAll(".box");
+// Selects the total cost element where the total cost of the selected plan and add-ons will be displayed.
 const total = document.querySelector(".total b");
 const planPrice = document.querySelector(".plan-price");
+// Declares a variable to store the billing period (monthly or yearly).
 let time;
+// Initializes a variable to keep track of the current step of the form.
 let currentStep = 1;
+// Initializes a variable to keep track of the current circle (step indicator) in the sidebar.
 let currentCircle = 0;
+// Initializes an object to store the selected plan, billing period, and price.
 const obj = {
   plan: null,
   kind: null,
@@ -20,6 +31,7 @@ steps.forEach((step) => {
   const prevBtn = step.querySelector(".prev-stp");
   if (prevBtn) {
     prevBtn.addEventListener("click", () => {
+              // Hide the current step
       document.querySelector(`.step-${currentStep}`).style.display = "none";
       currentStep--;
       document.querySelector(`.step-${currentStep}`).style.display = "flex";
